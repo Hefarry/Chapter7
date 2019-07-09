@@ -123,4 +123,23 @@ public class PlayerActivity extends AppCompatActivity {
 
         }
     }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (player != null) {
+            player.stop();
+            player.release();
+        }
+        if (timer != null) {
+            timer.cancel();
+        }
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }
